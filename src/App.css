@@ -6,9 +6,6 @@
     min-height: 100vh;
     background-color: #39445a;
     color: white;
-    padding-top: 130px;
-    padding-bottom: 70px;
-
 }
 
 @media (max-width:700px) {

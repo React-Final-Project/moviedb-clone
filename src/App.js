@@ -1,6 +1,5 @@
 
 import './App.css';
-import Header from './components/header/Header';
 import SimpleBottomNavigation from './components/MainNav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Container } from '@material-ui/core';
@@ -9,13 +8,14 @@ import Trending from './Pages/Trending/Trending';
 import Movies from './Pages/Movies/Movies';
 import Series from './Pages/Series/Series';
 import Search from './Pages/Search/Search';
+import AnimatedCarousel from './AnimatedCarousel/AnimatedCarousel';
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
 
       <div className="app">
+        
         <Container>
           <div>
             <Routes>
@@ -26,9 +26,13 @@ function App() {
             </Routes>
           </div>
         </Container>
+
+        <SimpleBottomNavigation />
+
+        <AnimatedCarousel />
+
       </div>
 
-      <SimpleBottomNavigation />
     </BrowserRouter>
   );
 }
