@@ -1,9 +1,10 @@
 .media{
     display: flex;
-    flex-direction: column;
-    width: 200px;
+    flex-direction: row;
+    width: 300px;
+    height: 250px;
     padding: 5px;
-    margin: 5px 0;
+    margin: 5px 5px;
     background-color: #282c34;
     border-radius: 10px;
     position: relative;
@@ -21,20 +22,30 @@
     }
 }
 
-.poster{
+              /* 这里是img */
+.poster{    
+    width: 100px;
     border-radius: 10px;
 }
 
+        /* 这里是电影电视剧标题 */
 .title{
     width: 100%;
+    height: 100%;
     text-align: center;
     font-size: 18px;
-    padding: 8px 0;
+    padding: 8px 2px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    flex-direction: row;
 }
 
+            /* 这里是日期和电影或电视剧的类型 */
 .subTitle{
     display: flex;
-    justify-content: space-between;
-    padding-bottom: 4px;
-    padding: 0 2px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 2px 2px;
 }

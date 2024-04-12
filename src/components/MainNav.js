@@ -84,9 +84,7 @@ import { useNavigate } from 'react-router-dom';
 const useStyles = makeStyles({
   root: {
     width: "100%",
-    position: "fixed",
-    bottom: "0",
-    backgroundColor: "#2d313a",
+    backgroundColor: "#39445a",
     zIndex: "100"
   },
   selectedText: {
@@ -114,7 +112,7 @@ export default function SimpleBottomNavigation() {
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
-      }}   //setvalue的值永远为0
+      }}   //setvalue的值会更新
       showLabels
       className={classes.root}
     >

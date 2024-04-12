@@ -3,8 +3,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import SingleContent from '../../components/SingleContent/SingleContent';
 import CustomPageination from "../../components/Pagination/CustomPagination"
-import Genres from '../../components/Genres';
-import useGenre from '../../hooks/useGenre';
 
 const Series = () => {
 
@@ -14,14 +12,9 @@ const Series = () => {
 
   const [numOfPages,setNumOfPages] = useState()
 
-  const [selectedGenres,setSelectedGenres] = useState([])
-
-  const [genres,setGenres] = useState([])
-
-  const genreforURL = useGenre(selectedGenres)
-
   const fetchSeries = async () => {
-    const {data} = await axios.get(`https://api.themoviedb.org/3/discover/tv?api_key=5b1c34ab42822e20b4c8133dca93621c&include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genreforURL}`)
+    
+    const {data} = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`)
 
     // console.log(data);
 
@@ -31,20 +24,11 @@ const Series = () => {
 
   useEffect(() => {
     fetchSeries()
-  },[page,,genreforURL])
+  },[page])
 
   return (
     <div>
-      <div className='pageTitle'>TV Series</div>
-
-      <Genres
-        type = "tv"    //注意大小写
-        selectedGenres = {selectedGenres}
-        setSelectedGenres = {setSelectedGenres}
-        genres = {genres}
-        setGenres = {setGenres}
-        setPage = {setPage}
-      />
+      <div className='pageTitle'>Popular TV Series</div>
 
       <div className='trending'>
         {content && content.map((c) => (

@@ -16,13 +16,13 @@ const SingleContent = (
 ) => {
     
   return (
-    <ContentModal media_type={media_type} id={id}>
-      <Badge badgeContent={vote_average} color={vote_average >= 7 ? "primary" : "secondary"} overlap="rectangular"/>
+    <ContentModal media_type={media_type} id={id} >
       <img 
       className='poster'
       src={poster ? `${img_300}/${poster}` : unavailable} 
       alt={title}
       />
+      <Badge badgeContent={vote_average} color={vote_average >= 7 ? "primary" : "secondary"} overlap="rectangular"/>
       <b className="title">{title}</b>
       <div className='subTitle'>
         {media_type === "tv" ? "Tv" : "Movie"}

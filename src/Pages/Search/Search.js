@@ -29,7 +29,7 @@ const Search = () => {
   })
 
   const fetchSearch = async () => {
-    const {data} = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=5b1c34ab42822e20b4c8133dca93621c&include_adult=false&language=en-US&page=${page}&query=${searchText}`)
+    const {data} = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&include_adult=false&language=en-US&page=${page}&query=${searchText}`)
 
     setContent(data.results)
     setNumOfPages(data.total_pages)

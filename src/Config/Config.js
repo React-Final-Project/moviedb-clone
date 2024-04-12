@@ -1,6 +1,6 @@
 //image sizes for tmdb
 export const img_300 = "https://image.tmdb.org/t/p/w300";
-export const img_500 = "https://image.tmdb.org/t/p/w500";
+export const img_500 = "https://image.tmdb.org/t/p/w1280";  //这里用1280的图片，不用500像素
 
 // contentModal and singleContent
 export const unavailable =

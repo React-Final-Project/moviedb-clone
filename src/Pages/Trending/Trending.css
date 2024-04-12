@@ -1,5 +1,12 @@
-.trending{
+.trending {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+    flex-wrap: nowrap; 
+    justify-content: flex-start; 
+    overflow-x: auto; 
+  }
+  
+@media (max-width: 550px) {
+    .trending {
+      overflow-x: scroll; 
+    }
+  }

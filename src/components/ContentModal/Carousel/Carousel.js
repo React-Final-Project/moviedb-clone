@@ -1,80 +1,3 @@
-// import axios from 'axios';
-// import React, { useEffect, useState } from 'react';
-// import AliceCarousel from 'react-alice-carousel';
-// import 'react-alice-carousel/lib/alice-carousel.css';
-// import { img_300, noPicture } from '../../../Config/Config';
-// import "./Carousel.css"
-
-// const handleDragStart = (e) => e.preventDefault();
-
-// const Gallery = ({media_type,id}) => {
-
-// 	const [credits,setCredits] = useState()
-
-// 	//为什么下面要加？
-// 	const items = credits?.map((c) => (
-// 		<div className='carouselItem'>
-// 			<img 
-// 			  src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-// 			  alt={c.name}
-// 			  onDragStart={handleDragStart}
-// 			  className='carouselItem_img'
-// 			/>
-// 			<b className='carouselItem_txt'>
-// 				{c?.name}
-// 			</b>
-// 		</div>
-// 	))
-
-// 	const responsive = {
-// 		0:{
-// 			item:3,
-// 		},
-// 		512:{
-// 			item:5,
-// 		},
-// 		1024:{
-// 			item:7,
-// 		},
-// 	}
-
-// 	const fetchCredits = async () => {
-// 		const {data} = await axios.get(
-// 			`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=5b1c34ab42822e20b4c8133dca93621c&language=en-US`
-// 		)
-// 		setCredits(data.cast)
-// 	}
-
-// 	useEffect(() => {
-// 		fetchCredits()
-// 	},[])
-
-
-
-// 	return <AliceCarousel 
-// 	disableButtonsControls 
-// 	disableDotsControls 
-// 	infinite 
-// 	autoPlay 
-// 	responsive={responsive} 
-// 	mouseTracking 
-// 	items={items} 
-// 	/>;
-// };
-
-// export default Gallery;
-
-
-
-
-// const items = [
-// 	<img src="path-to-img" onDragStart={handleDragStart} role="presentation" />,
-// 	<img src="path-to-img" onDragStart={handleDragStart} role="presentation" />,
-// 	<img src="path-to-img" onDragStart={handleDragStart} role="presentation" />,
-// ];
-
-
-
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -85,18 +8,18 @@ import "./Carousel.css";
 
 const handleDragStart = (e) => e.preventDefault();
 
-const Gallery = ({ id, media_type }) => {
-  const [credits, setCredits] = useState([]);
+const Gallery = ({ id, media_type }) => {     //这里前后不重要
+  const [credits, setCredits] = useState([]);    //这里必须设credits为空数组，不能是undefined
 
-  const items = credits.map((c) => (
+  const items = credits.map((c) => (      //这里credits后面不加?
     <div className="carouselItem">
       <img
         src={c.profile_path ? `${img_300}/${c.profile_path}` : noPicture}
-        alt={c?.name}
+        alt={c?.name}      //这里为什么加?
         onDragStart={handleDragStart}
         className="carouselItem__img"
       />
-      <b className="carouselItem__txt">{c?.name}</b>
+      <b >{c?.name}</b>
     </div>
   ));
 
@@ -121,7 +44,6 @@ const Gallery = ({ id, media_type }) => {
 
   useEffect(() => {
     fetchCredits();
-    // eslint-disable-next-line
   }, []);
 
   return (
